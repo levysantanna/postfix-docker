@@ -1,6 +1,5 @@
 FROM fedora:latest
 
-RUN dnf update -y 
 RUN dnf install -y postfix rsyslog supervisor ; dnf clean all
 RUN sed -i "s/inet_interfaces = localhost/inet_interfaces = all/g" /etc/postfix/main.cf ; echo mynetworks = 172.0.0.0/8, 10.0.0.0/8, 127.0.0.0/8, 192.168.0.0/16 >> /etc/postfix/main.cf
 
